@@ -20,7 +20,6 @@ let
 
   inputs = import ./inputs.nix;
   inherit (inputs) nixpkgs-muvm;
-  nixos-apple-silicon-overlay = import "${inputs.nixos-apple-silicon}/apple-silicon-support/packages/overlay.nix";
 
   # Overlay which applies changes from https://github.com/NixOS/nixpkgs/pull/397932
   muvm-overlay = final: prev: {
@@ -30,7 +29,6 @@ let
   };
 
   overlays = [
-    nixos-apple-silicon-overlay
     muvm-overlay
     overlay
   ];
